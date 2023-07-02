@@ -44,8 +44,25 @@ Like for the parsing of the whole function body any bracket containing more than
 The brackets containing only a single element represent the positions of the function arguments within the function body,
 the index of the argument is encoded by the nesting depth of the bracket.
 
-For instance `((())(()(())((()))))` will be decoded as `(1 (0 1 2) )` which represents the lambda expression `Labc.b(abc)` or `a->b->c->b(a(b)(c))`
+For instance `((())(()(())((()))))` will be decoded as `(1 (0 1 2) )` which represents the lambda expression `a->b->c->b(a(b)(c))` or `Labc.b(abc)`
 
+Most Lambda expressions with unused arguments cannot correctly be encoded in a single bracket expression,
+they can still be represented by using additional arguments an passing the correct functions as arguments
+
+Example:
+
+```
+x->y->x
+```
+would be encoded as
+```
+(())
+```
+which will be interpreted as as `x->x`
+
+It can be encoded as `(a->b->c->a c b) (x->y->y)`
+
+giving the expression `(()((()))(()))(((())))`
 
 
 
