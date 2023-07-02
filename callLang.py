@@ -52,7 +52,6 @@ def parse(code):
     expr[i]=parseArgs(expr[i])
   return expr
 
-## use dummy variable + evaluation with identity at to write expressions with a single variable in the function body
 
 def evaluateLambda(expr,val):
   for i in range(0,len(expr)):
