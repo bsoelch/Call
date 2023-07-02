@@ -1,5 +1,5 @@
 # Call
-Call is an implementation of Lambda Calculus using only he symbols `(` and `)`
+Call is an implementation of Lambda Calculus using only the symbols `(` and `)`
 
 ## Examples
 
@@ -34,8 +34,15 @@ The contents of the first bracket will be parsed a lambda expression.
 All successive brackets are function arguments, they will be recursively parsed as sub-expressions.
 (First element as lambda-function, all successive elements as arguments)
 
+For example
+
 ```
 ((())(()(())((())))) ( (()(())) () ( (()(())) ) )
+```
+
+will be parsed as
+```
+[Labc.b(a b c)] ( [Lab.ab] [La.a] [Lab.ba] )
 ```
 
 ### Lambda expressions
